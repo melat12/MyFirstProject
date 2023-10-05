@@ -1,0 +1,63 @@
+﻿@page
+
+@model MyFirstProject.Pages.loginModel
+@{
+    ViewData["Title"] = "Welcome, Login!";
+}
+
+<br />
+
+<h2>Welcome, Login!</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <p>@Model.dbemail</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+
+
+
+<form method="POST">
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-l
+abel">Email</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control" name="email" value="" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" name="password" value="" />
+        </div>
+    </div>
+    
+    <p>@Model.dbemail db</p>
+    <p>@Model.wbemail web</p>
+    @if(Model.dbemail == Model.items.email)
+    {
+        <h1>@Model.successMessage</h1>
+    }
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@Model.successMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-6 d-grid">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+
+    <h4>   Do not have an account? <a href="/Register">Sign Up</a></h4>
+
+</form>
+

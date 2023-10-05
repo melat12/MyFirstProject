@@ -1,0 +1,42 @@
+﻿@page
+@model MyFirstProject.Pages.ClientModel
+@{
+    ViewData["Title"] = "Title";
+}
+
+<br/>
+
+<h2>List of Users</h2>
+
+<a class="btn btn-primary" href="/Client/Create">Add User</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>LName</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model.items)
+        {
+        <tr>
+            <td>@user.id</td>
+            <td>@user.name</td>
+            <td>@user.lname</td>
+            <td>@user.email</td>
+            <td>@user.password</td>
+
+            <td>
+                <a class="btn btn-dark btn-sm" href="Edit?id=">Edit</a>
+                    <a class="btn btn-light btn-sm" href="Delete?id=">Delete</a>
+
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

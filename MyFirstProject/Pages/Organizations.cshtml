@@ -1,0 +1,36 @@
+﻿@page
+@model MyFirstProject.Pages.OrganizationsModel
+@{
+}
+<br />
+
+<h2>List of Users</h2>
+
+<a class="btn btn-primary" href="/Organizations/Create">Add Organization</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>Location</th>
+            <th>Services</th>
+            <th>Service time</th>
+            <th>Contact info</th>
+            <th>Category</th>
+            <th>Created_at</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.items)
+        {
+            <tr>
+                <td>@user.id</td>
+                <td>@user.name</td>
+                <td>LName</td>
+                <td>@user.address</td>
+                <td>Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>
